@@ -1,15 +1,25 @@
+// class Account {
+// 	readonly id: number; //readOnly property can only be set in constructor
+// 	owner: string;
+// 	private _balance: number; //Private property can't be access outside class
+// 	nickname?:string; //Optional property is not required in constructor.
+	
+// 	//Constructor
+// 	constructor(id:number, owner:string, balance:number){
+// 		this.id= id;
+// 		this.owner=owner;
+// 		this._balance=balance;
+// 	}
+// }
+
+//Creating a class as a shorthand using Parameter Properties.
 class Account {
-	readonly id: number; //readOnly property can only be set in constructor
-	owner: string;
-	private _balance: number; //Private property can't be access outside class
 	nickname?:string; //Optional property is not required in constructor.
 	
 	//Constructor
-	constructor(id:number, owner:string, balance:number){
-		this.id= id;
-		this.owner=owner;
-		this._balance=balance;
+	constructor(public readonly id: number, public owner:string, private _balance:number){
 	}
+
 	//Methods
 	deposit(amount:number):void{
 		if (amount<=0)
