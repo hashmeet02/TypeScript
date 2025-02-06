@@ -50,3 +50,14 @@ class Account {
 let account= new Account(1, "Mosh", 0);
 account.deposit(100);
 console.log(account.balance);
+
+//Index Signatures
+class SeatAssignment {
+	[seatNumber: string]:string; //This is called an index signature property
+}
+let seats=new SeatAssignment();
+//The following 2 lines are identical
+seats.A1="Mosh";
+seats["A1"]="Mosh";
+
+seats.A2="John";
