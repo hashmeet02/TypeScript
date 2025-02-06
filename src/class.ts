@@ -17,7 +17,10 @@ class Account {
 	nickname?:string; //Optional property is not required in constructor.
 	
 	//Constructor
-	constructor(public readonly id: number, public owner:string, private _balance:number){
+	constructor(
+		public readonly id: number,
+		public owner:string, 
+		private _balance:number){
 	}
 
 	//Methods
@@ -33,11 +36,17 @@ class Account {
 	}
 	
 	//This is a getter because _blance is a private property
-	getBalance(): number{
+	get balance(): number{
 		return this._balance;
+	}
+	//this is a setter
+	set balance(value;number)	{
+		if (value<=0)
+			throw new Error('Invalid value');
+		this.balance=value
 	}
 }
 
 let account= new Account(1, "Mosh", 0);
 account.deposit(100);
-console.log(account.getBalance());
+console.log(account.balance);
