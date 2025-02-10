@@ -35,3 +35,10 @@ class Teacher extends Person{
 }
 let teacher= new Teacher ('John', 'Smith');
 console.log(teacher.fullName)
+
+//Polymorphism
+printNames([new Student(1,"John", "Smith"), new Teacher("Hashmeet", "Saini")])
+function printNames(people:Person[]){
+    for (let person of people)
+        console.log(person.fullName);
+}
