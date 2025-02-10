@@ -32,15 +32,16 @@ class Account {
 	
 	//A private method can only be called inside the class.
 	private claculateTax(){
-				
+		//code goes here
 	}
 	
 	//This is a getter because _blance is a private property
 	get balance(): number{
+		this.claculateTax();
 		return this._balance;
 	}
 	//this is a setter
-	set balance(value;number)	{
+	set balance(value:number)	{
 		if (value<=0)
 			throw new Error('Invalid value');
 		this.balance=value
@@ -61,3 +62,24 @@ seats.A1="Mosh";
 seats["A1"]="Mosh";
 
 seats.A2="John";
+
+
+//Static Members
+class Ride{
+	private static _activeRides:number=0;
+	start(){Ride._activeRides++;}
+	stop(){Ride._activeRides--;}
+	
+	static get activeRides(){  //getter for static member will also be static.
+		return Ride._activeRides
+	}
+}
+
+let ride1= new Ride();
+ride1.start();
+
+let ride2= new Ride();
+ride2.start();
+
+console.log(Ride.activeRides); //active ride is 2
+console.log(Ride.activeRides); //active ride is 2
